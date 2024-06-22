@@ -1,0 +1,10 @@
+name: prismasdwan-gettemplate-createupdate
+runtime:
+  name: nodejs
+  options:
+    packagemanager: yarn
+description: A typescript program to pull an existing site configuration as a template, modify it, then apply it to another site.
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: typescript

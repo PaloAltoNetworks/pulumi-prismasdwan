@@ -1,0 +1,10 @@
+name: prismasdwan-createupdate-fromjson
+runtime:
+  name: nodejs
+  options:
+    packagemanager: yarn
+description: A typescript program to create or modify a site and related objects via a JSON text object.
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: typescript

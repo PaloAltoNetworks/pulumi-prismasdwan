@@ -1,0 +1,15 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "prismasdwan_site": {
+                "current": "prismasdwan:index/site:Site"
+            }
+        },
+        "datasources": {
+            "prismasdwan_site": {
+                "current": "prismasdwan:index/getSite:getSite"
+            }
+        }
+    },
+    "auto-settings": {}
+}

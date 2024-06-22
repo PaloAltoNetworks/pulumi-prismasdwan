@@ -1,0 +1,24 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Aaron Edwards <github-fake-email@ebob9.com>
+Date: Tue, 18 Jun 2024 11:10:17 -0800
+Subject: [PATCH] Add shim
+
+
+diff --git a/prismasdwan/shim.go b/prismasdwan/shim.go
+new file mode 100644
+index 0000000..6e4547d
+--- /dev/null
++++ b/prismasdwan/shim.go
+@@ -0,0 +1,12 @@
++package prismasdwan
++
++import (
++	prismasdwan "github.com/paloaltonetworks/terraform-provider-prismasdwan/internal/provider"
++	"github.com/hashicorp/terraform-plugin-framework/provider"
++)
++
++const version = "dev"
++
++func Provider() provider.Provider {
++	return prismasdwan.New(version)()
++}
