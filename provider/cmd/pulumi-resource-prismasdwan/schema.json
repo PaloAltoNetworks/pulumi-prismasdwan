@@ -1,0 +1,295 @@
+{
+    "name": "prismasdwan",
+    "displayName": "Prisma SD-WAN",
+    "description": "A Pulumi package for managing resources for Prisma SD-WAN.",
+    "keywords": [
+        "pulumi",
+        "prismasdwan",
+        "paloaltonetworks",
+        "category/network"
+    ],
+    "homepage": "https://pulumi.com",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`prismasdwan` Terraform Provider](https://github.com/PaloAltoNetworks/terraform-provider-prismasdwan).",
+    "repository": "https://github.com/paloaltonetworks/pulumi-prismasdwan",
+    "logoUrl": "https://raw.githubusercontent.com/paloaltonetworks/pulumi-prismasdwan/main/docs/logo.png",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "csharp": {
+            "packageReferences": {
+                "Pulumi": "3.*"
+            },
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true
+        },
+        "go": {
+            "importBasePath": "github.com/paloaltonetworks/pulumi-prismasdwan/sdk/go/prismasdwan",
+            "generateResourceContainerTypes": true,
+            "generateExtraInputTypes": true,
+            "respectSchemaVersion": true
+        },
+        "java": {
+            "basePackage": "com.pulumi",
+            "buildFiles": "",
+            "gradleNexusPublishPluginVersion": "",
+            "gradleTest": ""
+        },
+        "nodejs": {
+            "packageName": "@pulumi/prismasdwan",
+            "packageDescription": "A Pulumi package for managing resources for Prisma SD-WAN.. Based on terraform-provider-prismasdwan: version v0.1.0",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/PaloAltoNetworks/terraform-provider-prismasdwan)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-prismasdwan` repo](https://github.com/paloaltonetworks/pulumi-prismasdwan/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-prismasdwan` repo](https://github.com/PaloAltoNetworks/terraform-provider-prismasdwan/issues).",
+            "dependencies": {
+                "@pulumi/pulumi": "^3.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true,
+            "respectSchemaVersion": true
+        },
+        "python": {
+            "requires": {
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            },
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/PaloAltoNetworks/terraform-provider-prismasdwan)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-prismasdwan` repo](https://github.com/paloaltonetworks/pulumi-prismasdwan/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-prismasdwan` repo](https://github.com/PaloAltoNetworks/terraform-provider-prismasdwan/issues).",
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true,
+            "pyproject": {
+                "enabled": true
+            }
+        }
+    },
+    "config": {
+        "variables": {
+            "authFile": {
+                "type": "string",
+                "description": "The file path to the JSON file with auth creds for SCM.\n"
+            },
+            "authUrl": {
+                "type": "string",
+                "description": "The URL to send auth credentials to which will return a JWT. Default:\n`https://auth.apps.paloaltonetworks.com/auth/v1/oauth2/access_token`. Environment variable: `SCM_AUTH_URL`. JSON config\nfile variable: `auth_url`.\n"
+            },
+            "clientId": {
+                "type": "string",
+                "description": "The client ID for the connection. Environment variable: `SCM_CLIENT_ID`. JSON config file variable: `client_id`.\n"
+            },
+            "clientSecret": {
+                "type": "string",
+                "description": "The client secret for the connection. Environment variable: `SCM_CLIENT_SECRET`. JSON config file variable:\n`client_secret`.\n",
+                "secret": true
+            },
+            "host": {
+                "type": "string",
+                "description": "The hostname of Strata Cloud Manager API. Default: `api.sase.paloaltonetworks.com`. Environment variable: `SCM_HOST`.\nJSON config file variable: `host`.\n"
+            },
+            "logging": {
+                "type": "string",
+                "description": "The logging level of the provider and the underlying communication. Default: `quiet`. Environment variable:\n`SCM_LOGGING`. JSON config file variable: `logging`.\n"
+            },
+            "port": {
+                "type": "integer",
+                "description": "The port number for API operations, if non-standard for the given protocol. Environment variable: `SCM_PORT`. JSON\nconfig file variable: `port`.\n"
+            },
+            "protocol": {
+                "type": "string",
+                "description": "The protocol (https or http). Default: `https`. Environment variable: `SCM_PROTOCOL`. JSON config file variable:\n`protocol`.\n"
+            },
+            "scope": {
+                "type": "string",
+                "description": "The client scope. Environment variable: `SCM_SCOPE`. JSON config file variable: `scope`.\n"
+            }
+        }
+    },
+    "provider": {
+        "description": "The provider type for the prismasdwan package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "authFile": {
+                "type": "string",
+                "description": "The file path to the JSON file with auth creds for SCM.\n"
+            },
+            "authUrl": {
+                "type": "string",
+                "description": "The URL to send auth credentials to which will return a JWT. Default:\n`https://auth.apps.paloaltonetworks.com/auth/v1/oauth2/access_token`. Environment variable: `SCM_AUTH_URL`. JSON config\nfile variable: `auth_url`.\n"
+            },
+            "clientId": {
+                "type": "string",
+                "description": "The client ID for the connection. Environment variable: `SCM_CLIENT_ID`. JSON config file variable: `client_id`.\n"
+            },
+            "clientSecret": {
+                "type": "string",
+                "description": "The client secret for the connection. Environment variable: `SCM_CLIENT_SECRET`. JSON config file variable:\n`client_secret`.\n",
+                "secret": true
+            },
+            "host": {
+                "type": "string",
+                "description": "The hostname of Strata Cloud Manager API. Default: `api.sase.paloaltonetworks.com`. Environment variable: `SCM_HOST`.\nJSON config file variable: `host`.\n"
+            },
+            "logging": {
+                "type": "string",
+                "description": "The logging level of the provider and the underlying communication. Default: `quiet`. Environment variable:\n`SCM_LOGGING`. JSON config file variable: `logging`.\n"
+            },
+            "port": {
+                "type": "integer",
+                "description": "The port number for API operations, if non-standard for the given protocol. Environment variable: `SCM_PORT`. JSON\nconfig file variable: `port`.\n"
+            },
+            "protocol": {
+                "type": "string",
+                "description": "The protocol (https or http). Default: `https`. Environment variable: `SCM_PROTOCOL`. JSON config file variable:\n`protocol`.\n"
+            },
+            "scope": {
+                "type": "string",
+                "description": "The client scope. Environment variable: `SCM_SCOPE`. JSON config file variable: `scope`.\n"
+            }
+        },
+        "inputProperties": {
+            "authFile": {
+                "type": "string",
+                "description": "The file path to the JSON file with auth creds for SCM.\n"
+            },
+            "authUrl": {
+                "type": "string",
+                "description": "The URL to send auth credentials to which will return a JWT. Default:\n`https://auth.apps.paloaltonetworks.com/auth/v1/oauth2/access_token`. Environment variable: `SCM_AUTH_URL`. JSON config\nfile variable: `auth_url`.\n"
+            },
+            "clientId": {
+                "type": "string",
+                "description": "The client ID for the connection. Environment variable: `SCM_CLIENT_ID`. JSON config file variable: `client_id`.\n"
+            },
+            "clientSecret": {
+                "type": "string",
+                "description": "The client secret for the connection. Environment variable: `SCM_CLIENT_SECRET`. JSON config file variable:\n`client_secret`.\n",
+                "secret": true
+            },
+            "host": {
+                "type": "string",
+                "description": "The hostname of Strata Cloud Manager API. Default: `api.sase.paloaltonetworks.com`. Environment variable: `SCM_HOST`.\nJSON config file variable: `host`.\n"
+            },
+            "logging": {
+                "type": "string",
+                "description": "The logging level of the provider and the underlying communication. Default: `quiet`. Environment variable:\n`SCM_LOGGING`. JSON config file variable: `logging`.\n"
+            },
+            "port": {
+                "type": "integer",
+                "description": "The port number for API operations, if non-standard for the given protocol. Environment variable: `SCM_PORT`. JSON\nconfig file variable: `port`.\n"
+            },
+            "protocol": {
+                "type": "string",
+                "description": "The protocol (https or http). Default: `https`. Environment variable: `SCM_PROTOCOL`. JSON config file variable:\n`protocol`.\n"
+            },
+            "scope": {
+                "type": "string",
+                "description": "The client scope. Environment variable: `SCM_SCOPE`. JSON config file variable: `scope`.\n"
+            }
+        }
+    },
+    "resources": {
+        "prismasdwan:index/site:Site": {
+            "description": "Manages a Prisma SD-WAN site.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as prismasdwan from \"@pulumi/prismasdwan\";\n\nconst example = new prismasdwan.Site(\"example\", {config: \"/Users/jdoe/sdwan_configs/site1.yaml\"});\n```\n```python\nimport pulumi\nimport pulumi_prismasdwan as prismasdwan\n\nexample = prismasdwan.Site(\"example\", config=\"/Users/jdoe/sdwan_configs/site1.yaml\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Prismasdwan = Pulumi.Prismasdwan;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Prismasdwan.Site(\"example\", new()\n    {\n        Config = \"/Users/jdoe/sdwan_configs/site1.yaml\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/paloaltonetworks/pulumi-prismasdwan/sdk/go/prismasdwan\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := prismasdwan.NewSite(ctx, \"example\", \u0026prismasdwan.SiteArgs{\n\t\t\tConfig: pulumi.String(\"/Users/jdoe/sdwan_configs/site1.yaml\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.prismasdwan.Site;\nimport com.pulumi.prismasdwan.SiteArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Site(\"example\", SiteArgs.builder()\n            .config(\"/Users/jdoe/sdwan_configs/site1.yaml\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: prismasdwan:Site\n    properties:\n      config: /Users/jdoe/sdwan_configs/site1.yaml\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "properties": {
+                "config": {
+                    "type": "string",
+                    "description": "The filesystem path of the site's JSON config.\n"
+                },
+                "isDeployed": {
+                    "type": "boolean",
+                    "description": "This will be set to false if the site config deployed does not match the given config file.\n"
+                },
+                "tfid": {
+                    "type": "string"
+                },
+                "timeout": {
+                    "type": "string",
+                    "description": "Timeouts for this resource's operations. A custom timeout is a string that has a number and a units suffix, such as 30s or 1h1m1s. Valid units are \"h\", \"m\", or \"s\". Note that changes to custom timeouts only take effect during resource creation or update. Default: 30m.\n"
+                }
+            },
+            "required": [
+                "config",
+                "isDeployed",
+                "tfid",
+                "timeout"
+            ],
+            "inputProperties": {
+                "config": {
+                    "type": "string",
+                    "description": "The filesystem path of the site's JSON config.\n"
+                },
+                "isDeployed": {
+                    "type": "boolean",
+                    "description": "This will be set to false if the site config deployed does not match the given config file.\n"
+                },
+                "timeout": {
+                    "type": "string",
+                    "description": "Timeouts for this resource's operations. A custom timeout is a string that has a number and a units suffix, such as 30s or 1h1m1s. Valid units are \"h\", \"m\", or \"s\". Note that changes to custom timeouts only take effect during resource creation or update. Default: 30m.\n"
+                }
+            },
+            "requiredInputs": [
+                "config"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Site resources.\n",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "The filesystem path of the site's JSON config.\n"
+                    },
+                    "isDeployed": {
+                        "type": "boolean",
+                        "description": "This will be set to false if the site config deployed does not match the given config file.\n"
+                    },
+                    "tfid": {
+                        "type": "string"
+                    },
+                    "timeout": {
+                        "type": "string",
+                        "description": "Timeouts for this resource's operations. A custom timeout is a string that has a number and a units suffix, such as 30s or 1h1m1s. Valid units are \"h\", \"m\", or \"s\". Note that changes to custom timeouts only take effect during resource creation or update. Default: 30m.\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "prismasdwan:index/getSite:getSite": {
+            "description": "Retrieves the JSON pull-site info for a given site.  This can then be updated and sebsequently fed into the prismasdwan.Site resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as prismasdwan from \"@pulumi/prismasdwan\";\n\nconst site1 = prismasdwan.getSite({\n    siteName: \"Site1\",\n});\n```\n```python\nimport pulumi\nimport pulumi_prismasdwan as prismasdwan\n\nsite1 = prismasdwan.get_site(site_name=\"Site1\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Prismasdwan = Pulumi.Prismasdwan;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var site1 = Prismasdwan.GetSite.Invoke(new()\n    {\n        SiteName = \"Site1\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/paloaltonetworks/pulumi-prismasdwan/sdk/go/prismasdwan\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := prismasdwan.LookupSite(ctx, \u0026prismasdwan.LookupSiteArgs{\n\t\t\tSiteName: \"Site1\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.prismasdwan.PrismasdwanFunctions;\nimport com.pulumi.prismasdwan.inputs.GetSiteArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var site1 = PrismasdwanFunctions.getSite(GetSiteArgs.builder()\n            .siteName(\"Site1\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  site1:\n    fn::invoke:\n      Function: prismasdwan:getSite\n      Arguments:\n        siteName: Site1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSite.\n",
+                "properties": {
+                    "siteName": {
+                        "type": "string",
+                        "description": "The site whose config should be retrieved.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "siteName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSite.\n",
+                "properties": {
+                    "config": {
+                        "description": "The site config.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "siteName": {
+                        "description": "The site whose config should be retrieved.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config",
+                    "siteName",
+                    "id"
+                ],
+                "type": "object"
+            }
+        }
+    }
+}

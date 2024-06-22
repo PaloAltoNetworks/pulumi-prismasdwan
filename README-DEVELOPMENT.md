@@ -24,7 +24,7 @@ The following instructions cover:
 - providers published and maintained by the Pulumi community, referred to as "third-party" providers
 
 We showcase a Pulumi-owned provider based on an upstream provider named
-`terraform-provider-sdwan`.  Substitute
+`terraform-provider-prismasdwan`.  Substitute
 appropriate values below for your use case.
 
 > Note: If the name of the desired Pulumi provider differs from the name of the
@@ -85,7 +85,7 @@ Pulumi provider repositories have the following general structure:
 1. In `provider/go.mod`, add a reference to the upstream Terraform provider in the `require` section, e.g.
 
     ```go
-    github.com/foo/terraform-provider-sdwan v0.1.0
+    github.com/foo/terraform-provider-prismasdwan v0.1.0
     ```
 
 1. In `provider/resources.go`, ensure the reference in the `import` section uses the correct Go module path, e.g.:
