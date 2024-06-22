@@ -5,7 +5,7 @@ go 1.21.4
 toolchain go1.21.6
 
 require (
-	github.com/paloaltonetworks/terraform-provider-sdwan v0.1.0
+	github.com/paloaltonetworks/terraform-provider-prismasdwan v0.1.0
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.37.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.84.0
 )
@@ -190,10 +190,6 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/stretchr/testify v1.9.0 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
-	github.com/tidwall/gjson v1.14.2 // indirect
-	github.com/tidwall/match v1.1.1 // indirect
-	github.com/tidwall/pretty v1.2.0 // indirect
-	github.com/tidwall/sjson v1.2.5 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
@@ -238,6 +234,6 @@ require (
 	lukechampine.com/frand v1.4.2 // indirect
 )
 
-replace github.com/paloaltonetworks/terraform-provider-sdwan => ../upstream
+replace github.com/paloaltonetworks/terraform-provider-prismasdwan => ../upstream
 
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10

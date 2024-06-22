@@ -13,7 +13,7 @@ index 0000000..6e4547d
 +package prismasdwan
 +
 +import (
-+	prismasdwan "github.com/paloaltonetworks/terraform-provider-sdwan/internal/provider"
++	prismasdwan "github.com/paloaltonetworks/terraform-provider-prismasdwan/internal/provider"
 +	"github.com/hashicorp/terraform-plugin-framework/provider"
 +)
 +

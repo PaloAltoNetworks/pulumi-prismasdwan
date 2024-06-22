@@ -1,16 +1,15 @@
 {
     "auto-aliasing": {
         "resources": {
-            "sdwan_site": {
-                "current": "prismasdwan:index/sdwanSiteResource:SdwanSite",
-                "fields": {
-                    "config": {
-                        "maxItemsOne": true
-                    }
-                }
+            "prismasdwan_site": {
+                "current": "prismasdwan:index/site:Site"
             }
         },
-        "datasources": {}
+        "datasources": {
+            "prismasdwan_site": {
+                "current": "prismasdwan:index/getSite:getSite"
+            }
+        }
     },
     "auto-settings": {}
 }

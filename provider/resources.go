@@ -16,7 +16,7 @@ package provider
 
 import (
 	"fmt"
-	"github.com/paloaltonetworks/terraform-provider-sdwan/prismasdwan"
+	"github.com/paloaltonetworks/terraform-provider-prismasdwan/prismasdwan"
 	"path/filepath"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
@@ -74,7 +74,7 @@ func Provider() tfbridge.ProviderInfo {
 		GitHubOrg:         "PaloAltoNetworks",
 		UpstreamRepoPath:  "./upstream",
 		MetadataInfo:      tfbridge.NewProviderMetadata(bridgeMetadata),
-		TFProviderVersion: "0.2.1",
+		TFProviderVersion: "0.1.0",
 		Version:           version.Version,
 		Config:            map[string]*tfbridge.SchemaInfo{},
 		Resources:         map[string]*tfbridge.ResourceInfo{},
