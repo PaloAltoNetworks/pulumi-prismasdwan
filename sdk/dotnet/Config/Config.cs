@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Immutable;
 
-namespace Pulumi.Scm
+namespace Pulumi.Prismasdwan
 {
     public static class Config
     {
@@ -30,7 +30,7 @@ namespace Pulumi.Scm
             }
         }
 
-        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("scm");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("prismasdwan");
 
         private static readonly __Value<string?> _authFile = new __Value<string?>(() => __config.Get("authFile"));
         /// <summary>
@@ -75,17 +75,6 @@ namespace Pulumi.Scm
             set => _clientSecret.Set(value);
         }
 
-        private static readonly __Value<ImmutableDictionary<string, string>?> _headers = new __Value<ImmutableDictionary<string, string>?>(() => __config.GetObject<ImmutableDictionary<string, string>>("headers"));
-        /// <summary>
-        /// Custom HTTP headers to be sent with all API commands. Environment variable: `SCM_HEADERS`. JSON config file variable:
-        /// `headers`.
-        /// </summary>
-        public static ImmutableDictionary<string, string>? Headers
-        {
-            get => _headers.Get();
-            set => _headers.Set(value);
-        }
-
         private static readonly __Value<string?> _host = new __Value<string?>(() => __config.Get("host"));
         /// <summary>
         /// The hostname of Strata Cloud Manager API. Default: `api.sase.paloaltonetworks.com`. Environment variable: `SCM_HOST`.
@@ -110,7 +99,7 @@ namespace Pulumi.Scm
 
         private static readonly __Value<int?> _port = new __Value<int?>(() => __config.GetInt32("port"));
         /// <summary>
-        /// The port number to use for API commands, if non-standard for the given protocol. Environment variable: `SCM_PORT`. JSON
+        /// The port number for API operations, if non-standard for the given protocol. Environment variable: `SCM_PORT`. JSON
         /// config file variable: `port`.
         /// </summary>
         public static int? Port
@@ -121,8 +110,8 @@ namespace Pulumi.Scm
 
         private static readonly __Value<string?> _protocol = new __Value<string?>(() => __config.Get("protocol"));
         /// <summary>
-        /// The protocol to use for SCM. This should be 'http' or 'https'. Default: `https`. Environment variable: `SCM_PROTOCOL`.
-        /// JSON config file variable: `protocol`.
+        /// The protocol (https or http). Default: `https`. Environment variable: `SCM_PROTOCOL`. JSON config file variable:
+        /// `protocol`.
         /// </summary>
         public static string? Protocol
         {

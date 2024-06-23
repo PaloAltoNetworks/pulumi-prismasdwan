@@ -1,8 +1,8 @@
 [project]
-  name = "pulumi_scm"
-  description = "A Pulumi package for managing resources on Strata Cloud Manager."
+  name = "pulumi_prismasdwan"
+  description = "A Pulumi package for managing resources for Prisma SD-WAN."
   dependencies = ["parver>=0.2.1", "pulumi>=3.0.0,<4.0.0", "semver>=2.8.1"]
-  keywords = ["pulumi", "scm", "paloaltonetworks", "category/network"]
+  keywords = ["pulumi", "prismasdwan", "paloaltonetworks", "category/network"]
   readme = "README.md"
   requires-python = ">=3.8"
   version = "0.0.0a0+dev"
@@ -19,4 +19,4 @@
 [tool]
   [tool.setuptools]
     [tool.setuptools.package-data]
-      pulumi_scm = ["py.typed", "pulumi-plugin.json"]
+      pulumi_prismasdwan = ["py.typed", "pulumi-plugin.json"]

@@ -1,1 +1,1 @@
-A Pulumi package for managing resources on Strata Cloud Manager.
+A Pulumi package for managing resources for Prisma SD-WAN.

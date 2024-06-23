@@ -5,14 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * The provider type for the scm package. By default, resources use package-wide configuration
+ * The provider type for the prismasdwan package. By default, resources use package-wide configuration
  * settings, however an explicit `Provider` instance may be created and passed during resource
  * construction to achieve fine-grained programmatic control over provider settings. See the
  * [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
  */
 export class Provider extends pulumi.ProviderResource {
     /** @internal */
-    public static readonly __pulumiType = 'scm';
+    public static readonly __pulumiType = 'prismasdwan';
 
     /**
      * Returns true if the given object is an instance of Provider.  This is designed to work even
@@ -55,8 +55,8 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly logging!: pulumi.Output<string | undefined>;
     /**
-     * The protocol to use for SCM. This should be 'http' or 'https'. Default: `https`. Environment variable: `SCM_PROTOCOL`.
-     * JSON config file variable: `protocol`.
+     * The protocol (https or http). Default: `https`. Environment variable: `SCM_PROTOCOL`. JSON config file variable:
+     * `protocol`.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
@@ -79,7 +79,6 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["authUrl"] = args ? args.authUrl : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["headers"] = pulumi.output(args ? args.headers : undefined).apply(JSON.stringify);
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["port"] = pulumi.output(args ? args.port : undefined).apply(JSON.stringify);
@@ -117,11 +116,6 @@ export interface ProviderArgs {
      */
     clientSecret?: pulumi.Input<string>;
     /**
-     * Custom HTTP headers to be sent with all API commands. Environment variable: `SCM_HEADERS`. JSON config file variable:
-     * `headers`.
-     */
-    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
      * The hostname of Strata Cloud Manager API. Default: `api.sase.paloaltonetworks.com`. Environment variable: `SCM_HOST`.
      * JSON config file variable: `host`.
      */
@@ -132,13 +126,13 @@ export interface ProviderArgs {
      */
     logging?: pulumi.Input<string>;
     /**
-     * The port number to use for API commands, if non-standard for the given protocol. Environment variable: `SCM_PORT`. JSON
+     * The port number for API operations, if non-standard for the given protocol. Environment variable: `SCM_PORT`. JSON
      * config file variable: `port`.
      */
     port?: pulumi.Input<number>;
     /**
-     * The protocol to use for SCM. This should be 'http' or 'https'. Default: `https`. Environment variable: `SCM_PROTOCOL`.
-     * JSON config file variable: `protocol`.
+     * The protocol (https or http). Default: `https`. Environment variable: `SCM_PROTOCOL`. JSON config file variable:
+     * `protocol`.
      */
     protocol?: pulumi.Input<string>;
     /**

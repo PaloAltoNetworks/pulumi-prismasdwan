@@ -7,15 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Scm
+namespace Pulumi.Prismasdwan
 {
     /// <summary>
-    /// The provider type for the scm package. By default, resources use package-wide configuration
+    /// The provider type for the prismasdwan package. By default, resources use package-wide configuration
     /// settings, however an explicit `Provider` instance may be created and passed during resource
     /// construction to achieve fine-grained programmatic control over provider settings. See the
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
-    [ScmResourceType("pulumi:providers:scm")]
+    [PrismasdwanResourceType("pulumi:providers:prismasdwan")]
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
@@ -60,8 +60,8 @@ namespace Pulumi.Scm
         public Output<string?> Logging { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol to use for SCM. This should be 'http' or 'https'. Default: `https`. Environment variable: `SCM_PROTOCOL`.
-        /// JSON config file variable: `protocol`.
+        /// The protocol (https or http). Default: `https`. Environment variable: `SCM_PROTOCOL`. JSON config file variable:
+        /// `protocol`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Scm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
-            : base("scm", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
+            : base("prismasdwan", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -141,19 +141,6 @@ namespace Pulumi.Scm
             }
         }
 
-        [Input("headers", json: true)]
-        private InputMap<string>? _headers;
-
-        /// <summary>
-        /// Custom HTTP headers to be sent with all API commands. Environment variable: `SCM_HEADERS`. JSON config file variable:
-        /// `headers`.
-        /// </summary>
-        public InputMap<string> Headers
-        {
-            get => _headers ?? (_headers = new InputMap<string>());
-            set => _headers = value;
-        }
-
         /// <summary>
         /// The hostname of Strata Cloud Manager API. Default: `api.sase.paloaltonetworks.com`. Environment variable: `SCM_HOST`.
         /// JSON config file variable: `host`.
@@ -169,15 +156,15 @@ namespace Pulumi.Scm
         public Input<string>? Logging { get; set; }
 
         /// <summary>
-        /// The port number to use for API commands, if non-standard for the given protocol. Environment variable: `SCM_PORT`. JSON
+        /// The port number for API operations, if non-standard for the given protocol. Environment variable: `SCM_PORT`. JSON
         /// config file variable: `port`.
         /// </summary>
         [Input("port", json: true)]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol to use for SCM. This should be 'http' or 'https'. Default: `https`. Environment variable: `SCM_PROTOCOL`.
-        /// JSON config file variable: `protocol`.
+        /// The protocol (https or http). Default: `https`. Environment variable: `SCM_PROTOCOL`. JSON config file variable:
+        /// `protocol`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

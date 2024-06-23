@@ -16,7 +16,6 @@ package provider
 
 import (
 	"fmt"
-	"github.com/paloaltonetworks/terraform-provider-prismasdwan/prismasdwan"
 	"path/filepath"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
@@ -27,6 +26,7 @@ import (
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 
 	"github.com/paloaltonetworks/pulumi-prismasdwan/provider/pkg/version"
+	"github.com/paloaltonetworks/terraform-provider-prismasdwan/prismasdwan"
 )
 
 //go:embed cmd/pulumi-resource-prismasdwan/bridge-metadata.json

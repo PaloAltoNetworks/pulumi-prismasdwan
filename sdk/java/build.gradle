@@ -67,7 +67,7 @@ def genPulumiResources = tasks.register('genPulumiResources') {
         new File(outDir, "version.txt").text = resolvedVersion
         def info = new Object()
         info.metaClass.resource = true
-        info.metaClass.name = "scm"
+        info.metaClass.name = "prismasdwan"
         info.metaClass.version = resolvedVersion
         def infoJson = new groovy.json.JsonBuilder(info).toPrettyString()
         new File(outDir, "plugin.json").text = infoJson
@@ -82,7 +82,7 @@ publishing {
     publications {
         mainPublication(MavenPublication) {
             groupId = "com.pulumi"
-            artifactId = "scm"
+            artifactId = "prismasdwan"
             version = resolvedVersion
             from components.java
             artifact sourcesJar
@@ -92,7 +92,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-prismasdwan"
                 packaging = "jar"
-                description = "A Pulumi package for managing resources on Strata Cloud Manager."
+                description = "A Pulumi package for managing resources for Prisma SD-WAN."
 
                 url = "https://github.com/paloaltonetworks/pulumi-prismasdwan"
 

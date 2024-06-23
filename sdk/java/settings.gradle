@@ -10,5 +10,5 @@ pluginManagement {
   }
 }
 
-rootProject.name = "com.pulumi.scm"
+rootProject.name = "com.pulumi.prismasdwan"
 include("lib")

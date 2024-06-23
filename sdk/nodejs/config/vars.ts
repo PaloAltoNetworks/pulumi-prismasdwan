@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 declare var exports: any;
-const __config = new pulumi.Config("scm");
+const __config = new pulumi.Config("prismasdwan");
 
 /**
  * The file path to the JSON file with auth creds for SCM.
@@ -55,18 +55,6 @@ Object.defineProperty(exports, "clientSecret", {
 });
 
 /**
- * Custom HTTP headers to be sent with all API commands. Environment variable: `SCM_HEADERS`. JSON config file variable:
- * `headers`.
- */
-export declare const headers: {[key: string]: string} | undefined;
-Object.defineProperty(exports, "headers", {
-    get() {
-        return __config.getObject<{[key: string]: string}>("headers");
-    },
-    enumerable: true,
-});
-
-/**
  * The hostname of Strata Cloud Manager API. Default: `api.sase.paloaltonetworks.com`. Environment variable: `SCM_HOST`.
  * JSON config file variable: `host`.
  */
@@ -91,7 +79,7 @@ Object.defineProperty(exports, "logging", {
 });
 
 /**
- * The port number to use for API commands, if non-standard for the given protocol. Environment variable: `SCM_PORT`. JSON
+ * The port number for API operations, if non-standard for the given protocol. Environment variable: `SCM_PORT`. JSON
  * config file variable: `port`.
  */
 export declare const port: number | undefined;
@@ -103,8 +91,8 @@ Object.defineProperty(exports, "port", {
 });
 
 /**
- * The protocol to use for SCM. This should be 'http' or 'https'. Default: `https`. Environment variable: `SCM_PROTOCOL`.
- * JSON config file variable: `protocol`.
+ * The protocol (https or http). Default: `https`. Environment variable: `SCM_PROTOCOL`. JSON config file variable:
+ * `protocol`.
  */
 export declare const protocol: string | undefined;
 Object.defineProperty(exports, "protocol", {
