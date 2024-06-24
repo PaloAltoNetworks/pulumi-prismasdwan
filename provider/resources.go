@@ -67,7 +67,7 @@ func Provider() tfbridge.ProviderInfo {
 			"category/network",
 		},
 		License:    "Apache-2.0",
-		Homepage:   "https://pulumi.com",
+		Homepage:   "https://www.paloaltonetworks.com/sase/sd-wan",
 		Repository: "https://github.com/paloaltonetworks/pulumi-prismasdwan",
 		// The GitHub Org for the provider - defaults to `terraform-providers`. Note that this
 		// should match the TF provider module's require directive, not any replace directives.

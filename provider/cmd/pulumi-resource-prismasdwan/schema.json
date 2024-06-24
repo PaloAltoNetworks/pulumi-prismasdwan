@@ -8,7 +8,7 @@
         "paloaltonetworks",
         "category/network"
     ],
-    "homepage": "https://pulumi.com",
+    "homepage": "https://www.paloaltonetworks.com/sase/sd-wan",
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`prismasdwan` Terraform Provider](https://github.com/PaloAltoNetworks/terraform-provider-prismasdwan).",
     "repository": "https://github.com/paloaltonetworks/pulumi-prismasdwan",

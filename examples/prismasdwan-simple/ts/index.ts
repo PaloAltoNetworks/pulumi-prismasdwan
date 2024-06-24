@@ -20,7 +20,7 @@ const site1 = prismasdwan.getSite({
 site1
   .then((value: GetSiteResult) => {
       // console.log('site1 resolved with value: ' + value.config);
-      console.log('site1 other values: ', value.siteName);
+      console.log('site1 other values: ', value.config);
       const testObj = JSON.parse(value.config);
       console.log('Obj test: ', testObj);
       const testBackToString = JSON.stringify(testObj, undefined, 4);
