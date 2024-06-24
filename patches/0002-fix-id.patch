@@ -9,7 +9,7 @@ diff --git a/internal/provider/prismasdwan_site.go b/internal/provider/prismasdw
 --- a/internal/provider/prismasdwan_site.go	(revision 1e579a74667083ebac6b1b6f54326427cd5e3bde)
 +++ b/internal/provider/prismasdwan_site.go	(date 1719100530187)
 @@ -2,6 +2,8 @@
- 
+
  import (
  	"context"
 +	"crypto/sha512"
@@ -20,7 +20,7 @@ diff --git a/internal/provider/prismasdwan_site.go b/internal/provider/prismasdw
 @@ -41,6 +43,12 @@
  	Config string `json:"config"`
  }
- 
+
 +func GenerateIdFromConfig(config string) string {
 +	hashMaker := sha512.New()
 +	hashMaker.Write([]byte(config))
@@ -30,29 +30,13 @@ diff --git a/internal/provider/prismasdwan_site.go b/internal/provider/prismasdw
  func NewSdwanSiteDataSource() datasource.DataSource {
  	return &sdwanSiteDataSource{}
  }
-@@ -55,6 +63,7 @@
- 
- 	// Output.
- 	Config types.String `tfsdk:"config"`
-+	Id     types.String `tfsdk:"id"`
- }
- 
- func (d *sdwanSiteDataSource) Metadata(_ context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
-@@ -124,6 +133,7 @@
- 	}
- 
- 	state.Config = types.StringValue(ans.Config)
-+	state.Id = types.StringValue(GenerateIdFromConfig(state.Config.ValueString()))
- 	resp.Diagnostics.Append(resp.State.Set(ctx, &state)...)
- }
- 
 @@ -164,6 +174,7 @@
  	Config     types.String `tfsdk:"config"`
  	Timeout    types.String `tfsdk:"timeout"`
  	IsDeployed types.Bool   `tfsdk:"is_deployed"`
 +	Id         types.String `tfsdk:"id"`
  }
- 
+
  func (r *sdwanSiteResource) Metadata(_ context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
 @@ -193,6 +204,10 @@
  				Description: "The Terraform ID for this resource.",
@@ -72,14 +56,14 @@ diff --git a/internal/provider/prismasdwan_site.go b/internal/provider/prismasdw
 +		"id":                          GenerateIdFromConfig(filename),
  		"filename":                    filename,
  	})
- 
+
 @@ -313,6 +329,7 @@
  	state.Tfid = savestate.Tfid
  	state.Timeout = savestate.Timeout
  	state.Config = types.StringValue(filename)
 +	state.Id = types.StringValue(GenerateIdFromConfig(string(json)))
  	state.IsDeployed = types.BoolValue(ans.IsDeployed)
- 
+
  	resp.Diagnostics.Append(resp.State.Set(ctx, &state)...)
 @@ -338,6 +355,7 @@
  		"terraform_provider_function": "Update",
@@ -88,14 +72,14 @@ diff --git a/internal/provider/prismasdwan_site.go b/internal/provider/prismasdw
 +		"id":                          GenerateIdFromConfig(plan.Config.ValueString()),
  		"filename":                    plan.Config.ValueString(),
  	})
- 
+
 @@ -378,6 +396,7 @@
  	}
  	state.Timeout = plan.Timeout
  	state.Config = plan.Config
 +	state.Id = types.StringValue(GenerateIdFromConfig(state.Config.ValueString()))
  	state.IsDeployed = types.BoolValue(ans.IsDeployed)
- 
+
  	resp.Diagnostics.Append(resp.State.Set(ctx, &state)...)
 @@ -402,6 +421,7 @@
  		"terraform_provider_function": "Delete",
@@ -103,5 +87,5 @@ diff --git a/internal/provider/prismasdwan_site.go b/internal/provider/prismasdw
  		"uuid":                        uuid,
 +		"id":                          uuid,
  	})
- 
+
  	json, err := os.ReadFile(state.Config.ValueString())
