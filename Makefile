@@ -15,13 +15,32 @@ PULUMI_MISSING_DOCS_ERROR := true
 
 # Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local & branch builds will just used this fixed default version unless specified
-PROVIDER_VERSION ?= 0.0.0-alpha.0+dev
+# PROVIDER_VERSION ?= 0.0.0-alpha.0+dev
+# instead of above, auto increment minor version on each full build.
+
+VERSION_FILE   := running_build_version.txt
+ifneq ($(wildcard $(VERSION_FILE)),$(VERSION_FILE))
+$(error $(VERSION_FILE) not found)
+else
+
+VERSION_TAG     := $(shell cat "$(VERSION_FILE)")
+VER_MAJ_MIN     := $(subst ., ,$(VERSION_TAG))
+VERSION        := $(word 1,$(VER_MAJ_MIN))
+MAJOR          := $(word 2,$(VER_MAJ_MIN))
+MINOR          := $(word 3,$(VER_MAJ_MIN))
+INCR_MINOR      := $(shell expr "$(MINOR)" + 1)
+INCR_VERSION_TAG := $(VERSION).$(MAJOR).$(INCR_MINOR)
+
+PROVIDER_VERSION := $(VERSION_TAG)
+
+endif
+
 # Use this normalised version everywhere rather than the raw input to ensure consistency.
 VERSION_GENERIC = $(shell pulumictl convert-version --language generic --version "$(PROVIDER_VERSION)")
 
 development: install_plugins provider build_sdks install_sdks
 
-build: install_plugins provider build_sdks install_sdks
+build: install_plugins provider build_sdks install_sdks increment_version
 
 build_sdks: build_nodejs build_python build_go build_dotnet build_java
 
@@ -34,6 +53,9 @@ install_python_sdk:
 install_sdks: install_dotnet_sdk install_python_sdk install_nodejs_sdk install_java_sdk
 
 only_build: build
+
+increment_version:
+	echo "$(INCR_VERSION_TAG)" > "$(VERSION_FILE)"
 
 build_dotnet: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
 build_dotnet: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
