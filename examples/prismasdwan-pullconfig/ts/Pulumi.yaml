@@ -1,9 +1,9 @@
-name: prismasdwan-simple
+name: prismasdwan-pullconfig
 runtime:
   name: nodejs
   options:
     packagemanager: yarn
-description: A minimal TypeScript Pulumi program
+description: A typescript program to pull a site configuration and all items underneath.
 config:
   pulumi:tags:
     value:

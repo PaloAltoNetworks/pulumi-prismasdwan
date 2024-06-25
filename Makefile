@@ -91,7 +91,7 @@ build_python: upstream
 		../venv/bin/python -m build .
 
 clean:
-	rm -rf sdk/{dotnet,nodejs,go,python}
+	rm -rf sdk/{dotnet,nodejs,go,python,java}
 
 cleanup:
 	rm -r $(WORKING_DIR)/bin

@@ -1,5 +1,5 @@
 {
-    "name": "prismasdwan-simple",
+    "name": "prismasdwan-createupdate-fromjson",
     "main": "index.ts",
     "devDependencies": {
         "@types/node": "^18",
