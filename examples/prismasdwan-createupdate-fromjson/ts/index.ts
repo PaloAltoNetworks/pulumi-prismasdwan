@@ -35,8 +35,8 @@ let myScope = prismaSdwanConfig.require("scope")
 
 function ApplySiteChanges(newSiteConfig: string, siteName: string): [pulumi.Output<boolean>, pulumi.Output<string>] {
     // check for undefined site name or config
-    console.log("Site Name: ", siteName);
-    console.log("Site Config: ", newSiteConfig);
+    // console.log("Site Name: ", siteName);
+    // console.log("Site Config: ", newSiteConfig);
     let siteObj = new prismasdwan.Site(siteName, {config: newSiteConfig})
     return [siteObj.isDeployed, siteObj.config]
 }

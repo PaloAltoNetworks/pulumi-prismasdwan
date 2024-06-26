@@ -1,0 +1,31 @@
+{
+    "name": "@pulumi/prismasdwan",
+    "version": "0.1.1",
+    "description": "A Pulumi package for managing resources for Prisma SD-WAN.. Based on terraform-provider-prismasdwan: version v0.1.0",
+    "keywords": [
+        "pulumi",
+        "prismasdwan",
+        "paloaltonetworks",
+        "category/network"
+    ],
+    "homepage": "https://www.paloaltonetworks.com/sase/sd-wan",
+    "repository": "https://github.com/paloaltonetworks/pulumi-prismasdwan",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0"
+    },
+    "devDependencies": {
+        "@types/mime": "^2.0.0",
+        "@types/node": "^10.0.0",
+        "typescript": "^4.3.5"
+    },
+    "pulumi": {
+        "resource": true,
+        "name": "prismasdwan",
+        "version": "0.1.1"
+    },
+    "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+}
