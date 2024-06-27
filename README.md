@@ -61,3 +61,4 @@ The following configuration points are **required** for the `prismasdwan` provid
 ## Reference
 
 For detailed reference documentation, please visit [the Pulumi registry](https://www.pulumi.com/registry/packages/).
+
